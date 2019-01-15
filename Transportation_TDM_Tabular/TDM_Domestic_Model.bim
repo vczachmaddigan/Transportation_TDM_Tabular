@@ -1,0 +1,1945 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "TDM",
+        "connectionString": "Data Source=ushinptdmsqlserverdev.database.windows.net;Initial Catalog=TDMDWdev;User ID=saadmin;Persist Security Info=false;Encrypt=true;TrustServerCertificate=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "provider": "System.Data.SqlClient",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "AzureSqlDW"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Carrier",
+        "columns": [
+          {
+            "name": "S0001_Carrier_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0001_Carrier_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "SCAC",
+            "dataType": "string",
+            "sourceColumn": "Carrier_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Carrier_Name",
+            "dataType": "string",
+            "sourceColumn": "Carrier_Name",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Carrier_Type",
+            "dataType": "string",
+            "sourceColumn": "Carrier_Type",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "S0001_Carrier",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0001_Carrier].* FROM [Domestic].[S0001_Carrier] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0001_Carrier].* FROM [Domestic].[S0001_Carrier] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0001_Carrier"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Equipment_Type",
+        "columns": [
+          {
+            "name": "S0005_Equipment_Type_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0005_Equipment_Type_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Equipment_Type_ID",
+            "dataType": "string",
+            "sourceColumn": "Equipment_Type_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Equipment_Type_Description",
+            "dataType": "string",
+            "sourceColumn": "Equipment_Type_Description",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Driver_Control_ID",
+            "dataType": "string",
+            "sourceColumn": "Driver_Control_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Equipment_Type",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0005_Equipment_Type].* FROM [Domestic].[S0005_Equipment_Type] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0005_Equipment_Type].* FROM [Domestic].[S0005_Equipment_Type] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0005_Equipment_Type"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Fiscal_Calendar",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "Calendar_Date",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Calendar_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal_Year",
+            "dataType": "double",
+            "sourceColumn": "Fiscal_Year",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Fiscal_Period",
+            "dataType": "double",
+            "sourceColumn": "Fiscal_Period",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Fiscal_Period_Day_Number",
+            "dataType": "double",
+            "sourceColumn": "Fiscal_Period_Day_Number",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Fiscal_Week_Number",
+            "dataType": "double",
+            "sourceColumn": "Fiscal_Week_Number",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Week_Day_Number",
+            "dataType": "double",
+            "sourceColumn": "Week_Day_Number",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Fiscal_Year_Begin_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Fiscal_Year_Begin_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal_Year_End_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Fiscal_Year_End_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Weeks_In_Period",
+            "dataType": "double",
+            "sourceColumn": "Weeks_In_Period",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Fiscal_Period_Week_Number",
+            "dataType": "double",
+            "sourceColumn": "Fiscal_Period_Week_Number",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Fiscal_Period_Begin_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Fiscal_Period_Begin_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal_Period_End_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Fiscal_Period_End_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal_Week_Begin_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Fiscal_Week_Begin_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal_Day_Number",
+            "dataType": "double",
+            "sourceColumn": "Fiscal_Day_Number",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Julian_Day_Number",
+            "dataType": "double",
+            "sourceColumn": "Julian_Day_Number",
+            "sourceProviderType": "numeric"
+          },
+          {
+            "name": "Comparison_Calendar_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Comparison_Calendar_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "type": "calculated",
+            "name": "Long_Date",
+            "dataType": "dateTime",
+            "isDataTypeInferred": false,
+            "expression": "[Calendar_Date]",
+            "formatString": "dddd, MMMM d, yyyy",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"LongDate\" FormatString=\"dddd, MMMM d, yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Fiscal_Calendar",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0006_Fiscal_Calendar].* FROM [Domestic].[S0006_Fiscal_Calendar] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0006_Fiscal_Calendar].* FROM [Domestic].[S0006_Fiscal_Calendar] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0006_Fiscal_Calendar"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Service_Type",
+        "columns": [
+          {
+            "name": "S0008_Service_Type_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0008_Service_Type_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Service_Type_ID",
+            "dataType": "string",
+            "sourceColumn": "Service_Type_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Service_Type_Description",
+            "dataType": "string",
+            "sourceColumn": "Service_Type_Description",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Service_Type_Transit_Mode",
+            "dataType": "string",
+            "sourceColumn": "Service_Type_Transit_Mode",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Service_Type",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0008_Service_Type].* FROM [Domestic].[S0008_Service_Type] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0008_Service_Type].* FROM [Domestic].[S0008_Service_Type] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0008_Service_Type"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Origin_Shipping_Node",
+        "columns": [
+          {
+            "name": "S0009_Shipping_Node_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0009_Shipping_Node_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Shipping_Node_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Name",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Name",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Building_Number",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Building_Number",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Unit_Number",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Unit_Number",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Street_Name",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Street_Name",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_City",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_City",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Country_Subdivision_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Country_Subdivision_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Country_Subdivision_Name",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Country_Subdivision_Name",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Postal_Code",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Postal_Code",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Country_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Country_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Country_Name",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Country_Name",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Group_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Group_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipping_Node_Logistics_Group_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Logistics_Group_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Shipping_Node",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0009_Shipping_Node].* FROM [Domestic].[S0009_Shipping_Node] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Shipping Origin Geo Hierarchy",
+            "levels": [
+              {
+                "name": "Shipping_Node_ID",
+                "ordinal": 4,
+                "column": "Shipping_Node_ID"
+              },
+              {
+                "name": "Shipping_Node_Postal_Code",
+                "ordinal": 3,
+                "column": "Shipping_Node_Postal_Code"
+              },
+              {
+                "name": "Shipping_Node_City",
+                "ordinal": 2,
+                "column": "Shipping_Node_City"
+              },
+              {
+                "name": "Shipping_Node_Country_Subdivision_ID",
+                "ordinal": 1,
+                "column": "Shipping_Node_Country_Subdivision_ID"
+              },
+              {
+                "name": "Shipping_Node_Country_ID",
+                "ordinal": 0,
+                "column": "Shipping_Node_Country_ID"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0009_Shipping_Node].* FROM [Domestic].[S0009_Shipping_Node] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0009_Shipping_Node"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Commodity",
+        "columns": [
+          {
+            "name": "S0002_Commodity_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0002_Commodity_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Commodity_ID",
+            "dataType": "string",
+            "sourceColumn": "Commodity_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Commodity_Description",
+            "dataType": "string",
+            "sourceColumn": "Commodity_Description",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "S0002_Commodity",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0002_Commodity].* FROM [Domestic].[S0002_Commodity] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0002_Commodity].* FROM [Domestic].[S0002_Commodity] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0002_Commodity"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Load",
+        "columns": [
+          {
+            "name": "S0003_Load_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0003_Load_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0004_Load_Detail_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0004_Load_Detail_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Load_Code",
+            "dataType": "int64",
+            "sourceColumn": "Load_Code",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Created_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Created_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Created_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Created_Time",
+            "formatString": "hh:mm:ss AM/PM",
+            "sourceProviderType": "time",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"LongTime\" FormatString=\"hh:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Last_Updated_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Last_Updated_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Last_Updated_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Last_Updated_Time",
+            "formatString": "hh:mm:ss AM/PM",
+            "sourceProviderType": "time",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"LongTime\" FormatString=\"hh:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Scheduling_Completed_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Scheduling_Completed_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Scheduling_Completed_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Scheduling_Completed_Time",
+            "formatString": "hh:mm:ss AM/PM",
+            "sourceProviderType": "time",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"LongTime\" FormatString=\"hh:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Estimated_Start_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Start_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Estimated_Start_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Start_Time",
+            "formatString": "hh:mm:ss AM/PM",
+            "sourceProviderType": "time",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"LongTime\" FormatString=\"hh:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Estimated_End_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_End_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Estimated_End_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_End_Time",
+            "formatString": "hh:mm:ss AM/PM",
+            "sourceProviderType": "time",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"LongTime\" FormatString=\"hh:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Actual_Ship_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Actual_Ship_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Actual_Ship_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Actual_Ship_Time",
+            "formatString": "hh:mm AM/PM",
+            "sourceProviderType": "time",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortTime\" FormatString=\"hh:mm tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Actual_Completed_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Actual_Completed_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Actual_Completed_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Actual_Completed_Time",
+            "formatString": "hh:mm:ss AM/PM",
+            "sourceProviderType": "time",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"LongTime\" FormatString=\"hh:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Rated_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Rated_Date",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "date",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Rated_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Rated_Time",
+            "formatString": "hh:mm:ss AM/PM",
+            "sourceProviderType": "time",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"LongTime\" FormatString=\"hh:mm:ss tt\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "S0001_Carrier_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0001_Carrier_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0005_Equipment_Type_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0005_Equipment_Type_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0002_Commodity_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0002_Commodity_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0008_Service_Type_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0008_Service_Type_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0009_First_Shipping_Node_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0009_First_Shipping_Node_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0009_Last_Shipping_Node_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0009_Last_Shipping_Node_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Load_Stop_Count",
+            "dataType": "int64",
+            "sourceColumn": "Load_Stop_Count",
+            "sourceProviderType": "smallint"
+          },
+          {
+            "name": "Load_Shipment_Count",
+            "dataType": "int64",
+            "sourceColumn": "Load_Shipment_Count",
+            "sourceProviderType": "smallint"
+          },
+          {
+            "name": "Total_Load_Cube",
+            "dataType": "double",
+            "sourceColumn": "Total_Load_Cube",
+            "sourceProviderType": "float"
+          },
+          {
+            "name": "Total_Load_Scaled_Weight",
+            "dataType": "double",
+            "sourceColumn": "Total_Load_Scaled_Weight",
+            "sourceProviderType": "float"
+          },
+          {
+            "name": "Total_Load_Freight_Charge_Amount",
+            "dataType": "double",
+            "sourceColumn": "Total_Load_Freight_Charge_Amount",
+            "sourceProviderType": "float"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "type": "calculated",
+            "name": "Date Diff EDI vs. Reported",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "DATEDIFF('Load'[Estimated_End_Date],'Load'[Actual_Completed_Date],DAY)"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "S0003_Load",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0003_Load].* FROM [Domestic].[S0003_Load] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total_Volume",
+            "expression": " COUNT(Load[Load_Code])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Total_Cube",
+            "expression": " SUM(Load[Total_Load_Cube])"
+          },
+          {
+            "name": "Total_Scaled_Weight",
+            "expression": " SUM(Load[Total_Load_Scaled_Weight])"
+          },
+          {
+            "name": "Total_Charge_Amount",
+            "expression": " SUM(Load[Total_Load_Freight_Charge_Amount])"
+          },
+          {
+            "name": "Total_Volume_PY",
+            "expression": " CALCULATE(DISTINCTCOUNT('Load'[Load_Code]),FILTER(ALL('Fiscal_Calendar'[Calendar_Date]),CONTAINS(VALUES('Fiscal_Calendar'[Long_Date]),Fiscal_Calendar[Long_Date],'Fiscal_Calendar'[Calendar_Date])))"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0003_Load].* FROM [Domestic].[S0003_Load] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0003_Load"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Load_Detail",
+        "columns": [
+          {
+            "name": "S0004_Load_Detail_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0004_Load_Detail_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Load_Code",
+            "dataType": "int64",
+            "sourceColumn": "Load_Code",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Trip_Code",
+            "dataType": "int64",
+            "sourceColumn": "Trip_Code",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Freight_Terms_ID",
+            "dataType": "string",
+            "sourceColumn": "Freight_Terms_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Trailer_ID",
+            "dataType": "string",
+            "sourceColumn": "Trailer_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Distribution_Center_Notes",
+            "dataType": "string",
+            "sourceColumn": "Distribution_Center_Notes",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipment_Consolidation_Class",
+            "dataType": "string",
+            "sourceColumn": "Shipment_Consolidation_Class",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Load_Seal_ID",
+            "dataType": "string",
+            "sourceColumn": "Load_Seal_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Created_By_User_ID",
+            "dataType": "string",
+            "sourceColumn": "Created_By_User_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Updated_By_User_ID",
+            "dataType": "string",
+            "sourceColumn": "Updated_By_User_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Current_Operational_Status",
+            "dataType": "string",
+            "sourceColumn": "Current_Operational_Status",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Current_Financial_Status",
+            "dataType": "string",
+            "sourceColumn": "Current_Financial_Status",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "S0004_Load_Detail",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0004_Load_Detail].* FROM [Domestic].[S0004_Load_Detail] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Max Count",
+            "expression": "MAX(Load_Detail[Load_Code])"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0004_Load_Detail].* FROM [Domestic].[S0004_Load_Detail] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0004_Load_Detail"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Load_Status_History",
+        "columns": [
+          {
+            "name": "S0007_Load_Status_History_Row_ID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "S0007_Load_Status_History_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Load_Code",
+            "dataType": "int64",
+            "sourceColumn": "Load_Code",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Load_Status_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Load_Status_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Load_Status_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Load_Status_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Load_Status_ID",
+            "dataType": "string",
+            "sourceColumn": "Load_Status_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Load_Status_Reason",
+            "dataType": "string",
+            "sourceColumn": "Load_Status_Reason",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "S0007_Load_Status_History",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0007_Load_Status_History].* FROM [Domestic].[S0007_Load_Status_History] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0007_Load_Status_History].* FROM [Domestic].[S0007_Load_Status_History] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0007_Load_Status_History"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "Destination_Shipping_Node",
+        "columns": [
+          {
+            "name": "S0009_Shipping_Node_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0009_Shipping_Node_Row_ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Shipping_Node_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Name",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Building_Number",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Building_Number",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Unit_Number",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Unit_Number",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Street_Name",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Street_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_City",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_City",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Country_Subdivision_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Country_Subdivision_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Country_Subdivision_Name",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Country_Subdivision_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Postal_Code",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Postal_Code",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Country_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Country_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Country_Name",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Country_Name",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Group_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Group_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "Shipping_Node_Logistics_Group_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipping_Node_Logistics_Group_ID",
+            "sourceProviderType": "VarChar"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Destination Shipping Node",
+            "dataView": "full",
+            "source": {
+              "query": "SELECT * FROM Domestic.S0009_Shipping_Node",
+              "dataSource": "TDM"
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM Domestic.S0009_Shipping_Node</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Shipping Destination Geo Hierarchy",
+            "levels": [
+              {
+                "name": "Shipping_Node_ID",
+                "ordinal": 4,
+                "column": "Shipping_Node_ID"
+              },
+              {
+                "name": "Shipping_Node_Postal_Code",
+                "ordinal": 3,
+                "column": "Shipping_Node_Postal_Code"
+              },
+              {
+                "name": "Shipping_Node_City",
+                "ordinal": 2,
+                "column": "Shipping_Node_City"
+              },
+              {
+                "name": "Shipping_Node_Country_Subdivision_ID",
+                "ordinal": 1,
+                "column": "Shipping_Node_Country_Subdivision_ID"
+              },
+              {
+                "name": "Shipping_Node_Country_ID",
+                "ordinal": 0,
+                "column": "Shipping_Node_Country_ID"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": "SELECT * FROM Domestic.S0009_Shipping_Node"
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Destination Shipping Node"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM Domestic.S0009_Shipping_Node</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+          }
+        ]
+      },
+      {
+        "name": "S0010_Shipment",
+        "columns": [
+          {
+            "name": "S0010_Shipment_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0010_Shipment_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0011_Shipment_Detail_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0011_Shipment_Detail_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Shipment_Code",
+            "dataType": "int64",
+            "sourceColumn": "Shipment_Code",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Created_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Created_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Created_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Last_Updated_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Last_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Last_Updated_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Last_Updated_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Estimated_Pickup_Arrival_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Pickup_Arrival_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Estimated_Pickup_Arrival_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Pickup_Arrival_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Estimated_Pickup_Departure_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Pickup_Departure_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Estimated_Pickup_Departure_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Pickup_Departure_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Estimated_Drop_Arrival_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Drop_Arrival_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Estimated_Drop_Arrival_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Drop_Arrival_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Estimated_Drop_Departure_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Drop_Departure_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Estimated_Drop_Departure_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Estimated_Drop_Departure_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Actual_Pickup_Departure_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Actual_Pickup_Departure_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Actual_Pickup_Departure_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Actual_Pickup_Departure_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Actual_Pickup_Departure_Status_ID",
+            "dataType": "string",
+            "sourceColumn": "Actual_Pickup_Departure_Status_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Actual_Drop_Arrival_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Actual_Drop_Arrival_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Actual_Drop_Arrival_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Actual_Drop_Arrival_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Actual_Drop_Arrival_Status_ID",
+            "dataType": "string",
+            "sourceColumn": "Actual_Drop_Arrival_Status_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Trailer_Load_End_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Trailer_Load_End_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Trailer_Load_End_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Trailer_Load_End_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "Trailer_Load_End_Status_ID",
+            "dataType": "string",
+            "sourceColumn": "Trailer_Load_End_Status_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Rated_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Rated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "date"
+          },
+          {
+            "name": "Rated_Time",
+            "dataType": "dateTime",
+            "sourceColumn": "Rated_Time",
+            "formatString": "General Date",
+            "sourceProviderType": "time"
+          },
+          {
+            "name": "S0001_Carrier_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0001_Carrier_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0005_Equipment_Type_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0005_Equipment_Type_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0002_Commodity_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0002_Commodity_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0008_Service_Type_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0008_Service_Type_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0009_From_Shipping_Node_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0009_From_Shipping_Node_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "S0009_To_Shipping_Node_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0009_To_Shipping_Node_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Direct_Freight_Ind",
+            "dataType": "string",
+            "sourceColumn": "Direct_Freight_Ind",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "On_Hold_Ind",
+            "dataType": "string",
+            "sourceColumn": "On_Hold_Ind",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "On_Hold_Status_ID",
+            "dataType": "string",
+            "sourceColumn": "On_Hold_Status_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipment_Leg_Count",
+            "dataType": "int64",
+            "sourceColumn": "Shipment_Leg_Count",
+            "sourceProviderType": "smallint"
+          },
+          {
+            "name": "Split_Shipment_Count",
+            "dataType": "int64",
+            "sourceColumn": "Split_Shipment_Count",
+            "sourceProviderType": "smallint"
+          },
+          {
+            "name": "Shipment_Leg_Confirmed_Count",
+            "dataType": "int64",
+            "sourceColumn": "Shipment_Leg_Confirmed_Count",
+            "sourceProviderType": "smallint"
+          },
+          {
+            "name": "Shipment_Leg_Planned_Count",
+            "dataType": "int64",
+            "sourceColumn": "Shipment_Leg_Planned_Count",
+            "sourceProviderType": "smallint"
+          },
+          {
+            "name": "Shipment_Leg_Tendered_Count",
+            "dataType": "int64",
+            "sourceColumn": "Shipment_Leg_Tendered_Count",
+            "sourceProviderType": "smallint"
+          },
+          {
+            "name": "Shipment_Leg_Tender_Accepted_Count",
+            "dataType": "int64",
+            "sourceColumn": "Shipment_Leg_Tender_Accepted_Count",
+            "sourceProviderType": "smallint"
+          },
+          {
+            "name": "Shipment_Cube",
+            "dataType": "double",
+            "sourceColumn": "Shipment_Cube",
+            "sourceProviderType": "float"
+          },
+          {
+            "name": "Shipment_Scaled_Weight",
+            "dataType": "double",
+            "sourceColumn": "Shipment_Scaled_Weight",
+            "sourceProviderType": "float"
+          },
+          {
+            "name": "Shipment_Order_Value",
+            "dataType": "double",
+            "sourceColumn": "Shipment_Order_Value",
+            "sourceProviderType": "float"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "S0010_Shipment",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0010_Shipment].* FROM [Domestic].[S0010_Shipment] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0010_Shipment].* FROM [Domestic].[S0010_Shipment] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0010_Shipment"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      },
+      {
+        "name": "S0011_Shipment_Detail",
+        "columns": [
+          {
+            "name": "S0011_Shipment_Detail_Row_ID",
+            "dataType": "int64",
+            "sourceColumn": "S0011_Shipment_Detail_Row_ID",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Shipment_Code",
+            "dataType": "int64",
+            "sourceColumn": "Shipment_Code",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Shipment_Purchase_Order_ID",
+            "dataType": "string",
+            "sourceColumn": "Shipment_Purchase_Order_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Load_Code",
+            "dataType": "int64",
+            "sourceColumn": "Load_Code",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Trip_Code",
+            "dataType": "int64",
+            "sourceColumn": "Trip_Code",
+            "sourceProviderType": "int"
+          },
+          {
+            "name": "Freight_Terms_ID",
+            "dataType": "string",
+            "sourceColumn": "Freight_Terms_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Shipment_Consolidation_Class",
+            "dataType": "string",
+            "sourceColumn": "Shipment_Consolidation_Class",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Created_By_User_ID",
+            "dataType": "string",
+            "sourceColumn": "Created_By_User_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Updated_By_User_ID",
+            "dataType": "string",
+            "sourceColumn": "Updated_By_User_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Current_Operational_Status",
+            "dataType": "string",
+            "sourceColumn": "Current_Operational_Status",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Current_Financial_Status",
+            "dataType": "string",
+            "sourceColumn": "Current_Financial_Status",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Merge_In_Transit_Consolidation_Class_Strategy_ID",
+            "dataType": "string",
+            "sourceColumn": "Merge_In_Transit_Consolidation_Class_Strategy_ID",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Merge_In_Transit_Consolidation_Class_Strategy_Description",
+            "dataType": "string",
+            "sourceColumn": "Merge_In_Transit_Consolidation_Class_Strategy_Description",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Merge_In_Transit_Consolidation_Class_Code",
+            "dataType": "string",
+            "sourceColumn": "Merge_In_Transit_Consolidation_Class_Code",
+            "sourceProviderType": "varchar"
+          },
+          {
+            "name": "Merge_In_Transit_Consolidation_Class_Sequence",
+            "dataType": "double",
+            "sourceColumn": "Merge_In_Transit_Consolidation_Class_Sequence",
+            "sourceProviderType": "float"
+          },
+          {
+            "name": "TDM_Created_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "TDM_Created_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          },
+          {
+            "name": "TDM_Updated_Date",
+            "dataType": "dateTime",
+            "sourceColumn": "TDM_Updated_Date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "S0011_Shipment_Detail",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [Domestic].[S0011_Shipment_Detail].* FROM [Domestic].[S0011_Shipment_Detail] ",
+              "dataSource": "TDM"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [Domestic].[S0011_Shipment_Detail].* FROM [Domestic].[S0011_Shipment_Detail] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "S0011_Shipment_Detail"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "Domestic"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "a9557184-f093-45d5-b8ac-1d29a07b7f1b",
+        "fromCardinality": "one",
+        "fromTable": "Load",
+        "fromColumn": "S0004_Load_Detail_Row_ID",
+        "toTable": "Load_Detail",
+        "toColumn": "S0004_Load_Detail_Row_ID",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "305836b2-95bf-4a87-a1f8-53220fdd2c5b",
+        "fromTable": "Load",
+        "fromColumn": "S0002_Commodity_Row_ID",
+        "toTable": "Commodity",
+        "toColumn": "S0002_Commodity_Row_ID"
+      },
+      {
+        "name": "39077574-111d-4075-8ac1-3d16b61c59e4",
+        "fromTable": "Load",
+        "fromColumn": "S0001_Carrier_Row_ID",
+        "toTable": "Carrier",
+        "toColumn": "S0001_Carrier_Row_ID"
+      },
+      {
+        "name": "38167f8c-2ccb-49f7-a254-8332bf9364cf",
+        "fromTable": "Load",
+        "fromColumn": "S0005_Equipment_Type_Row_ID",
+        "toTable": "Equipment_Type",
+        "toColumn": "S0005_Equipment_Type_Row_ID"
+      },
+      {
+        "name": "2604424f-f463-4cbc-97d7-7e87ddca997c",
+        "fromTable": "Load",
+        "fromColumn": "S0009_First_Shipping_Node_Row_ID",
+        "toTable": "Origin_Shipping_Node",
+        "toColumn": "S0009_Shipping_Node_Row_ID"
+      },
+      {
+        "name": "277d6bbc-5d00-4153-9e1e-49d32751eb89",
+        "fromTable": "Load",
+        "fromColumn": "S0008_Service_Type_Row_ID",
+        "toTable": "Service_Type",
+        "toColumn": "S0008_Service_Type_Row_ID"
+      },
+      {
+        "name": "7683919c-ca71-4c4b-8821-ea36e7002af1",
+        "fromTable": "Load_Status_History",
+        "fromColumn": "Load_Code",
+        "toTable": "Load_Detail",
+        "toColumn": "Load_Code"
+      },
+      {
+        "name": "efd15d06-b07c-40ba-95db-c7065739b7b9",
+        "fromTable": "Load",
+        "fromColumn": "Actual_Ship_Date",
+        "toTable": "Fiscal_Calendar",
+        "toColumn": "Calendar_Date"
+      },
+      {
+        "name": "5f440727-8edc-457a-a4f3-ad04fd34bbee",
+        "fromTable": "Load",
+        "fromColumn": "S0009_Last_Shipping_Node_Row_ID",
+        "toTable": "Destination_Shipping_Node",
+        "toColumn": "S0009_Shipping_Node_Row_ID"
+      },
+      {
+        "name": "9e651f8a-b7d0-4344-8a7f-f5547f6d52c2",
+        "fromTable": "S0010_Shipment",
+        "fromColumn": "Estimated_Pickup_Arrival_Date",
+        "toTable": "Fiscal_Calendar",
+        "toColumn": "Calendar_Date"
+      },
+      {
+        "name": "d4e177bf-08a8-4bdd-bc1b-4860ccfab1af",
+        "fromTable": "S0010_Shipment",
+        "fromColumn": "S0011_Shipment_Detail_Row_ID",
+        "toTable": "S0011_Shipment_Detail",
+        "toColumn": "S0011_Shipment_Detail_Row_ID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
